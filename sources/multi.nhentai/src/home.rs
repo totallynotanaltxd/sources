@@ -53,6 +53,9 @@ impl Home for NHentai {
 				query_parts.push(format!("-tag:\"{blocked}\""));
 			}
 		}
+		for wanted in settings::get_wanted_tags() {
+			query_parts.push(format!("tag:\"{wanted}\""));
+		}
 
 		let query = encode_uri_component(if query_parts.is_empty() {
 			" ".into()

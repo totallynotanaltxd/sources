@@ -59,7 +59,7 @@ impl Source for NHentai {
 			query_parts.push(q);
 		}
 
-		let mut sort = "date";
+		let mut sort = settings::get_default_sort();
 
 		// parse filters
 		for filter in filters {
@@ -117,6 +117,10 @@ impl Source for NHentai {
 			if !blocked.is_empty() {
 				query_parts.push(format!("-tag:\"{blocked}\""));
 			}
+		}
+
+		for wanted in settings::get_wanted_tags() {
+			query_parts.push(format!("tag:\"{wanted}\""));
 		}
 
 		let combined_query = if query_parts.is_empty() {
