@@ -40,5 +40,36 @@
 				"refreshes": ["content"]
 			}
 		]
+	},
+	{
+		"type": "group",
+		"title": "Wanted Tags",
+		"items": [
+			{
+				"type": "editable-list",
+				"key": "wantedTags",
+				"title": "Add Wanted Tag",
+				"lineLimit": 1,
+				"inline": true,
+				"placeholder": "Tag to include",
+				"default": [],
+				"refreshes": ["content"]
+			}
+		]
+	},
+	{
+		"type": "group",
+		"title": "Sorting",
+		"items": [
+			{
+				"type": "select",
+				"key": "defaultSort",
+				"title": "Default Sort",
+				"values": ["date", "popular-today", "popular-week", "popular"],
+				"titles": ["Newest", "Popular Today", "Popular This Week", "Popular All Time"],
+				"default": "date",
+				"refreshes": ["content"]
+			}
+		]
 	}
 ]
